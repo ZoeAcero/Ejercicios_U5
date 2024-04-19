@@ -12,4 +12,21 @@ import java.util.Date;
 import java.util.List;
 
 public class OrdenarFechas {
-}
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> createAndShowGUI());
+    }
+
+    private static void createAndShowGUI() {
+        JFrame frame = new JFrame("Ordenar Fechas");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 200);
+
+        JTextField textField = new JTextField();
+        JButton button = new JButton("Add Date");
+        JButton sortButton = new JButton("Sort Dates");
+        JTextArea textArea = new JTextArea();
+
+        List<Date> fechas = new ArrayList<>();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+    }
