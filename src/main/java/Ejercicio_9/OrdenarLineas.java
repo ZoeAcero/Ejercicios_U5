@@ -51,5 +51,15 @@ public class OrdenarLineas {
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
+                }
+            }
+        });
+
+        frame.setLayout(new FlowLayout());
+        frame.add(button);
+        frame.add(label);
+
+        frame.setVisible(true);
+    }
 
     }
