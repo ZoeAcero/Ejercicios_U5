@@ -59,4 +59,24 @@ public class QuickSortOptimizado {
         int j = high + 1;
         while (true) {
             do {
+                i++;
+            } while (arr[i] < pivot);
+            do {
+                j--;
+            } while (arr[j] > pivot);
+            if (i >= j) {
+                return j;
+            }
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+
+    public static int medianOfThree(int[] arr, int low, int high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] < arr[low]) {
+            swap(arr, low, mid);
+        }
+            }
 }
