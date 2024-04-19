@@ -18,4 +18,13 @@ public class HexadecimalToDecimal {
         JTextField textField = new JTextField();
         JButton button = new JButton("Convert");
         JLabel label = new JLabel();
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String hexadecimal = textField.getText();
+                int decimal = hexToDecimal(hexadecimal, hexadecimal.length() - 1);
+                label.setText("El valor decimal de " + hexadecimal + " es: " + decimal);
+            }
+        });
 }
