@@ -36,5 +36,20 @@ public class OrdenarLineas {
                         while ((linea = br.readLine()) != null) {
                             lineas.add(linea);
                         }
+                        br.close();
+
+                        Collections.sort(lineas);
+
+                        BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt"));
+                        for (String l : lineas) {
+                            bw.write(l);
+                            bw.newLine();
+                        }
+                        bw.close();
+
+                        label.setText("Archivo ordenado con éxito.");
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
 
     }
