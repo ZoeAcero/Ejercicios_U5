@@ -44,4 +44,22 @@ public class OrdenarFechas {
             }
         });
 
+        sortButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Collections.sort(fechas);
+                textArea.setText("");
+                for (Date fecha : fechas) {
+                    textArea.append(dateFormat.format(fecha) + "\n");
+                }
+            }
+        });
+
+        frame.setLayout(new FlowLayout());
+        frame.add(new JLabel("Enter date (format dd/MM/yyyy):"));
+        frame.add(textField);
+        frame.add(button);
+        frame.add(sortButton);
+        frame.add(new JScrollPane(textArea));
+
     }
