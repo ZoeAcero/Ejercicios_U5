@@ -98,5 +98,11 @@ public class QuickSortOptimizado {
             arr[j + 1] = key;
         }
     }
+
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
             }
 }
