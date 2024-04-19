@@ -1,19 +1,51 @@
 package Ejercicio_4;
 
-public class Potencia {
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+public class Potencia {
     public static void main(String[] args) {
-        int x = 2;
-        int y = 5;
-        int resultado = potencia(x, y);
-        System.out.println(x + " elevado a la " + y + " es igual a: " + resultado);
+        SwingUtilities.invokeLater(() -> createAndShowGUI());
+    }
+
+    private static void createAndShowGUI() {
+        JFrame frame = new JFrame("Potencia");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 200);
+
+        JTextField baseField = new JTextField();
+        JTextField exponentField = new JTextField();
+        JButton button = new JButton("Calculate Power");
+        JLabel label = new JLabel();
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int x = Integer.parseInt(baseField.getText());
+                int y = Integer.parseInt(exponentField.getText());
+                int resultado = potencia(x, y);
+                label.setText(x + " elevado a la " + y + " es igual a: " + resultado);
+            }
+        });
+
+        frame.setLayout(new FlowLayout());
+        frame.add(new JLabel("Enter base:"));
+        frame.add(baseField);
+        frame.add(new JLabel("Enter exponent:"));
+        frame.add(exponentField);
+        frame.add(button);
+        frame.add(label);
+
+        frame.setVisible(true);
     }
 
     public static int potencia(int x, int y) {
-        int result = 1;
-        for (int i = 0; i < y; i++) {
-            result *= x;
+        if (y == 0) {
+            return 1;
+        } else {
+            return x * potencia(x, y - 1);
         }
-        return result;
     }
 }
