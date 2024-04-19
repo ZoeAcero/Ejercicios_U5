@@ -40,4 +40,13 @@ public class MaximoVcetor {
 
         frame.setVisible(true);
     }
+
+    public static int encontrarMaximo(int[] vector, int index) {
+        if (index == vector.length - 1) {
+            return vector[index];
+        } else {
+            int maximoRestante = encontrarMaximo(vector, index + 1);
+            return Math.max(vector[index], maximoRestante);
+        }
+    }
 }
