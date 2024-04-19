@@ -4,8 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
-public class MaximoVcetor {
+public class MaximoVector {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> createAndShowGUI());
     }
@@ -16,24 +17,21 @@ public class MaximoVcetor {
         frame.setSize(300, 200);
 
         JTextField textField = new JTextField();
-        JButton button = new JButton("Find Max");
+        JButton button = new JButton("Find Maximum");
         JLabel label = new JLabel();
 
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String[] numbers = textField.getText().split(",");
-                int[] vector = new int[numbers.length];
-                for (int i = 0; i < numbers.length; i++) {
-                    vector[i] = Integer.parseInt(numbers[i]);
-                }
+                int[] vector = Arrays.stream(numbers).mapToInt(Integer::parseInt).toArray();
                 int maximo = encontrarMaximo(vector, 0);
                 label.setText("El valor máximo del vector es: " + maximo);
             }
         });
 
         frame.setLayout(new FlowLayout());
-        frame.add(new JLabel("Enter numbers separated by comma:"));
+        frame.add(new JLabel("Enter array (comma separated):"));
         frame.add(textField);
         frame.add(button);
         frame.add(label);
