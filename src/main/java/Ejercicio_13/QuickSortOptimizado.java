@@ -40,4 +40,23 @@ public class QuickSortOptimizado {
 
         frame.setVisible(true);
     }
+
+    public static void quickSort(int[] arr, int low, int high) {
+        if (low < high) {
+            if (high - low <= INSERTION_SORT_THRESHOLD) {
+                insertionSort(arr, low, high);
+            } else {
+                int pi = partition(arr, low, high);
+                quickSort(arr, low, pi - 1);
+                quickSort(arr, pi + 1, high);
+            }
+        }
+    }
+
+    public static int partition(int[] arr, int low, int high) {
+        int pivot = medianOfThree(arr, low, high);
+        int i = low - 1;
+        int j = high + 1;
+        while (true) {
+            do {
 }
