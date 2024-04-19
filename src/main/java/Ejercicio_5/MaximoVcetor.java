@@ -18,4 +18,17 @@ public class MaximoVcetor {
         JTextField textField = new JTextField();
         JButton button = new JButton("Find Max");
         JLabel label = new JLabel();
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String[] numbers = textField.getText().split(",");
+                int[] vector = new int[numbers.length];
+                for (int i = 0; i < numbers.length; i++) {
+                    vector[i] = Integer.parseInt(numbers[i]);
+                }
+                int maximo = encontrarMaximo(vector, 0);
+                label.setText("El valor máximo del vector es: " + maximo);
+            }
+        });
 }
