@@ -14,4 +14,17 @@ public class CoeficienteBinomial {
         JFrame frame = new JFrame("Contador de Genes");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 200);
+
+        JTextField textField = new JTextField();
+        JButton button = new JButton("Count Genes");
+        JLabel label = new JLabel();
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String cadenaADN = textField.getText();
+                int genes = contarGenes(cadenaADN);
+                label.setText("La cadena de ADN tiene " + genes + " genes.");
+            }
+        });
 }
