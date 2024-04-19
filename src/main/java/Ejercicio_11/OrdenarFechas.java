@@ -29,4 +29,19 @@ public class OrdenarFechas {
         List<Date> fechas = new ArrayList<>();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String input = textField.getText();
+                try {
+                    Date fecha = dateFormat.parse(input);
+                    fechas.add(fecha);
+                    textArea.append(input + "\n");
+                    textField.setText("");
+                } catch (ParseException ex) {
+                    JOptionPane.showMessageDialog(frame, "Formato de fecha incorrecto. Ingrese la fecha nuevamente.");
+                }
+            }
+        });
+
     }
