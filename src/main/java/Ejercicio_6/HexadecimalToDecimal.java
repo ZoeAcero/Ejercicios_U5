@@ -36,4 +36,14 @@ public class HexadecimalToDecimal {
 
         frame.setVisible(true);
     }
+
+    public static int hexToDecimal(String hex, int index) {
+        if (index < 0) {
+            return 0;
+        } else {
+            char c = hex.charAt(index);
+            int valor = Character.isDigit(c) ? c - '0' : 10 + c - 'A';
+            return valor * (int) Math.pow(16, hex.length() - 1 - index) + hexToDecimal(hex, index - 1);
+        }
+    }
 }
