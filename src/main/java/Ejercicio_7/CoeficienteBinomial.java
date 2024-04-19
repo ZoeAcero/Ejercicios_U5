@@ -27,4 +27,13 @@ public class CoeficienteBinomial {
                 label.setText("La cadena de ADN tiene " + genes + " genes.");
             }
         });
+
+        frame.setLayout(new FlowLayout());
+        frame.add(new JLabel("Enter DNA sequence:"));
+        frame.add(textField);
+        frame.add(button);
+        frame.add(label);
+
+        frame.setVisible(true);
+    }
 }
