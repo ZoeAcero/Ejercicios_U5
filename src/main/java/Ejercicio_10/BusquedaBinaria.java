@@ -37,4 +37,19 @@ public class BusquedaBinaria {
                         while ((palabra = br.readLine()) != null) {
                             palabras.add(palabra);
                         }
+                        br.close();
+
+                        Collections.sort(palabras);
+
+                        String palabraBuscada = textField.getText();
+
+                        int indice = Collections.binarySearch(palabras, palabraBuscada);
+                        if (indice >= 0) {
+                            label.setText("La palabra se encontró en la posición " + (indice + 1));
+                        } else {
+                            label.setText("La palabra no se encontró en el archivo.");
+                        }
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
 }
