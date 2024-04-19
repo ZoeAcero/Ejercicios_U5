@@ -22,4 +22,20 @@ public class QuickSort {
 
         button.addActionListener(new ActionListener() {
             @Override
+            public void actionPerformed(ActionEvent e) {
+                String[] numbers = textField.getText().split(",");
+                int[] arr = Arrays.stream(numbers).mapToInt(Integer::parseInt).toArray();
+                quickSort(arr, 0, arr.length - 1);
+                label.setText("Arreglo ordenado: " + Arrays.toString(arr));
+            }
+        });
+
+        frame.setLayout(new FlowLayout());
+        frame.add(new JLabel("Enter array (comma separated):"));
+        frame.add(textField);
+        frame.add(button);
+        frame.add(label);
+
+        frame.setVisible(true);
+    }
 }
