@@ -31,4 +31,13 @@ public class MaximoVcetor {
                 label.setText("El valor máximo del vector es: " + maximo);
             }
         });
+
+        frame.setLayout(new FlowLayout());
+        frame.add(new JLabel("Enter numbers separated by comma:"));
+        frame.add(textField);
+        frame.add(button);
+        frame.add(label);
+
+        frame.setVisible(true);
+    }
 }
