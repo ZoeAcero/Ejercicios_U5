@@ -27,4 +27,13 @@ public class HexadecimalToDecimal {
                 label.setText("El valor decimal de " + hexadecimal + " es: " + decimal);
             }
         });
+
+        frame.setLayout(new FlowLayout());
+        frame.add(new JLabel("Enter hexadecimal number:"));
+        frame.add(textField);
+        frame.add(button);
+        frame.add(label);
+
+        frame.setVisible(true);
+    }
 }
