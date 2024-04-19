@@ -62,4 +62,7 @@ public class OrdenarFechas {
         frame.add(sortButton);
         frame.add(new JScrollPane(textArea));
 
+        frame.setVisible(true);
+    }
+
     }
