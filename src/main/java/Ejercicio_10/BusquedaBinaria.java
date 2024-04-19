@@ -22,4 +22,19 @@ public class BusquedaBinaria {
         JTextField textField = new JTextField();
         JButton button = new JButton("Select File and Search");
         JLabel label = new JLabel();
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                int returnValue = fileChooser.showOpenDialog(null);
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    try {
+                        BufferedReader br = new BufferedReader(new FileReader(selectedFile));
+                        List<String> palabras = new ArrayList<>();
+                        String palabra;
+                        while ((palabra = br.readLine()) != null) {
+                            palabras.add(palabra);
+                        }
 }
